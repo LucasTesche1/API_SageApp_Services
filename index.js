@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require('cors');
 const {PrismaClient} = require('@prisma/client');
-const { runPrompt } = require("./promptMaker");
+const { runPrompt } = require("./routes/promptMaker.js");
 const { error } = require("console");
 const bcrypt = require('bcrypt');
 

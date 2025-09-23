@@ -30,7 +30,7 @@ router.post('/register', async (req,res) => {
     }
 
     try{
-        const existingUser = await prisma.user.findUnique({where:{email} });
+        const existingUser = await prisma.user.findUnique({where:{email:email} });
         if(existingUser){
             return res.status(400).json({error : 'E-mail já está em uso'});
         }
@@ -59,7 +59,7 @@ router.post('/login', async (req,res) => {
     }
 
     try{
-        const user = await prisma.user.findUnique({where:{email}});
+        const user = await prisma.user.findUnique({where:{email:email}});
 
         if(!user){
             return res.status(401).json({error : 'Usuário não encontrado'});
