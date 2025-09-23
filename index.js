@@ -1,16 +1,21 @@
 //setup do servidor
-
 const express = require("express");
+const cors = require('cors');
+const {PrismaClient} = require('@prisma/client');
 const { runPrompt } = require("./promptMaker");
 const { error } = require("console");
+const bcrypt = require('bcrypt');
+
 require("dotenv").config();
 
 const app = express();
+const prisma = new PrismaClient();
 
-//middleware para o Json
+//middlewares
 app.use(express.json());
+app.use(cors());
 
-//rotas
+//rota do chatbot
 
 app.post("/gemini", async (req, res) => {
   try {
@@ -36,6 +41,10 @@ Sendo assim, você escuta ao "diagnóstico": ${prompt}.
       .json({ error: "Erro ao processar o prompt", details: err.message });
   }
 });
+
+//demais rotas
+
+app.use('/auth', require('./routes/auth.js'));
 
 //porta
 

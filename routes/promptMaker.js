@@ -1,4 +1,9 @@
-require("dotenv").config();
+const express = require('express');
+const cors = require('cors');
+const { PrismaClient } = require('@prisma/client');
+require('dotenv').config();
+const bcrypt = require('bcrypt');
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 //apikey
@@ -15,4 +20,6 @@ async function runPrompt(prompt) {
   return response.text();
 }
 
+
 module.exports = { runPrompt };
+
