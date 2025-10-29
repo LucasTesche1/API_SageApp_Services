@@ -6,14 +6,11 @@ const prisma = new PrismaClient();
 
 router.post('/', async (req, res) => {
   const { name, quantity, dosage } = req.body;
+  console.log('req.body:', req.body);
 
   try {
     const newItem = await prisma.itens.create({
-      data: {
-        name,
-        quantity,
-        dosage,
-      },
+      data: { name, quantity, dosage },
     });
     res.status(201).json(newItem);
   } catch (error) {
@@ -21,6 +18,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Erro ao criar item' });
   }
 });
+
 
 router.get('/', async (req, res) => {
   try {
