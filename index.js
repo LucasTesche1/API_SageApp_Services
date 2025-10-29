@@ -46,6 +46,8 @@ Sendo assim, você escuta ao "diagnóstico": ${prompt}.
 
 app.use('/auth', require('./routes/auth.js'));
 
+app.use('/itens', require('./routes/itens.js'));
+
 //porta
 
 const PORT = process.env.PORT;

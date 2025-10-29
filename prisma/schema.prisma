@@ -19,3 +19,10 @@ model User {
   password String
   email    String @unique
 }
+
+model Itens {
+  id       Int    @id @default(autoincrement())
+  name     String
+  quantity String
+  dosage   String
+}
