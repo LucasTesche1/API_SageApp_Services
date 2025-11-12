@@ -5,6 +5,9 @@
 # Como rodar localmente para testes:
 
 ```
+git clone https://github.com/LucasTesche1/API_SageApp_Services
+cd API_SageApp_Services
 npm install
 npm run dev
 ```
+
